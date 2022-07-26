@@ -37,7 +37,7 @@ while [ "${#}" -gt 0 ] ; do
 done
 
 # check requirements
-for i in "bash" "make" "cat" "install" ; do
+for i in "bash" "make" "cat" "install" "mkdir" ; do
     if ! command -v "${i}" > /dev/null ; then
         printf "\tconfigure: command: '${i}' not found..\n"
         export status="false"
