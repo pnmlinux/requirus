@@ -33,9 +33,11 @@
 #       check if exists that command and if not export any json file format.
 #
 #   improvements in output.
+#   librarise the tool.
 
 # Variables
 export CWD="${PWD}"
+export tab="$(printf '\t')"
 export REQUIRELEVEL="needed" OUTPUT="negative" requirusver="1.0.0" status="true" command=() file=() directory=() entity=()
 
 # Colors
@@ -162,7 +164,37 @@ if [[ "${DO}" = "version" ]] ; then
     echo "${requirusver}"
 elif [[ "${DO}" = "help" ]] ; then
     cat <<HELP
-help me
+${0##*/} ${requirusver}
+
+There are 8 flags for ${0##*/}:
+${tab}-c, --command [command] [command]..
+${tab}${tab}check the commands required for the program to run.
+
+${tab}-e, --entity [file or directory] [file or directory]..
+${tab}${tab}entity  actually  means  a file or directory, use this option if you don't know what format the thing you are going to check is.
+
+${tab}-d, --directory [directory] [directory]..
+${tab}${tab}check the needed directories.
+
+${tab}-f, --files [file] [file]..
+${tab}${tab}check the needed files.
+
+${tab}-r, --require [option]
+${tab}${tab}the require option is Indicates the exit status of the program,
+${tab}${tab}if this option is needed, it returns 1, but if this value is optional, then it returns 0.
+
+${tab}-o, --output [option]
+${tab}${tab}By  default,  only error outputs are displayed on the screen, 
+${tab}${tab}but you can change this with the output property. You can show both cases with both value,
+${tab}${tab}show only existing data with positive or show only non-existent data with negative.
+
+${tab}-v, --version
+${tab}${tab}show's current version of requirus.
+
+${tab}-h, --help
+${tab}${tab}show's this helper text.
+
+26.07.2022, pnm team - lazypwny751
 HELP
 else
     # command
