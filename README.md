@@ -2,6 +2,14 @@
 
 easily check the requirements together, files, directories, commands for all.
 
+## INSTALLATION
+
+```bash
+git clone "https://github.com/pnmlinux/requirus.git" && cd "requirus"
+bash configure.sh
+make install
+```
+
 ## OPTIONS
 
 ### -c, --command [command] [command]..
